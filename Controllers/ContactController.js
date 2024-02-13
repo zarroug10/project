@@ -8,17 +8,17 @@ const ERROR_MESSAGE = "L'authentification a échoué";
 const SUCCESS_MESSAGE = "L'authentification a réussi";
 
 //Lister Contact
-exports.listerContact= (req, res) => {
+exports.listerContact= async (req, res) => {
     // Vérification du JWT dans l'en-tête Authorization
-    const token = req.headers.authorization;
-    if (!token) {
-      res.status(401).json({ message: 'Aucun token fourni' });
-      return;
-    }
-    jwt.verify(token, secretKey, async (err, decoded) => {
-      if (err) {
-        res.status(401).json({ message: 'Token non valide' });
-      } else {
+    // const token = req.headers.authorization;
+    // if (!token) {
+    //   res.status(401).json({ message: 'Aucun token fourni' });
+    //   return;
+    // }
+    // jwt.verify(token, secretKey, async (err, decoded) => {
+    //   if (err) {
+    //     res.status(401).json({ message: 'Token non valide' });
+    //   } else {
         try {
           // Les traitements nécessaires pour lister les contacts
           const liste = await ContactModel.find({}).exec();
@@ -30,9 +30,7 @@ exports.listerContact= (req, res) => {
             message: 'Erreur interne du serveur.' 
           });
         }
-      }
-    });
-  };
+      };
 
 // Middleware pour gérer l'authentification
   exports.loginContact= (req, res) => {
