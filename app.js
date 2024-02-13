@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extende: true }));
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/Tozeur");
+mongoose.connect("mongodb+srv://zarrougabdelhafidh:mynameishafa@cluster0.5mwcivt.mongodb.net/?retryWrites=true&w=majority");
 const swaggerJSDoc = require('swagger-jsdoc');
    const swaggerUi = require('swagger-ui-express');
 const db = mongoose.connection;
