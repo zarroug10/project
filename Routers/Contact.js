@@ -3,6 +3,18 @@ const router = express.Router();
 
 const controller = require('../Controllers/ContactController');
 //Route Liste: Get Post Put Delete
+/** 
+    * @swagger
+    * /contact/lister:
+    *   get:
+    *     summary: Liste des contacts
+    *     description: Endpoint pour obtenir la liste des contacts.
+    *     responses:
+    *       200:
+    *         description: Liste des contacts récupérée avec succès.
+    *       400:
+    *         description: Erreur lors de la récupération de la liste des contacts.
+    */
 router.get('/contact/Lister',controller.listerContact);
 router.post('/login',controller.loginContact);
 /**
